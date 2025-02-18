@@ -1,0 +1,20 @@
+rechercher par adresse : <input [(ngModel)]="address">
+<div *ngFor="let r of listResidences">
+  <div *ngIf="r.address.toLowerCase().includes(address.toLowerCase())">
+   {{r.id }} - {{ r.name }}
+
+    <span *ngIf="r.status == 'Disponible'" [style.color]="getColor(r.status)">Disponible ✅</span>
+    <span *ngIf="r.status == 'En Construction' " [style.color]="getColor(r.status)">En Construction 🚧</span>
+    <span *ngIf="r.status == 'Vendu' " [style.color]="getColor(r.status)">Vendu ❌</span>
+    <button [routerLink]="['/details',r.id]">details</button>
+    <button (click)="getLocation(r)">Show location</button>
+    <button (click)="addFavoris(r)">Add To Favoris</button>
+    <div *ngIf="showAdress && id==r.id"> {{r.address}} </div>
+  </div>
+</div>
+
+<h1>Mes favoris</h1>
+<div *ngFor="let r of favoris">
+{{r.id }} - {{ r.name }}
+</div>
+
