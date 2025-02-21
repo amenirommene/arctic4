@@ -1,0 +1,20 @@
+<form [formGroup]="myForm" (submit)="add()">
+<label>Apartment Number</label>
+<input type="text" formControlName="apartmentNB">
+<div *ngIf="myForm.get('apartmentNB')?.invalid && myForm.get('apartmentNB')?.touched ">
+  <div *ngIf="myForm.get('apartmentNB')?.errors?.['required']" >  Champ obligatoire </div>
+  <div *ngIf="myForm.get('apartmentNB')?.errors?.['pattern']">  Le champ ne doit contenir que des chiffres </div>
+</div>
+touched : {{ myForm.get('apartmentNB')?.touched }}
+untouched : {{myForm.get('apartmentNB')?.untouched}}
+dirty : {{myForm.get('apartmentNB')?.dirty}}
+pristine : {{myForm.get('apartmentNB')?.pristine}}
+
+<br>
+<label>Floor Number</label>
+<input type="text" formControlName="floorNB">
+<div *ngIf="floor?.invalid">
+  Champ invalid
+</div>
+<input type="submit" value="Add" [disabled]="myForm.invalid">
+</form>

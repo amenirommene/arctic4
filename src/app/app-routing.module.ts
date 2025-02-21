@@ -1,3 +1,4 @@
+import { AddApartmentComponent } from './core/add-apartment/add-apartment.component';
 import { ResidenceDetailsComponent } from './residences/residence-details/residence-details.component';
 import { NotFoundComponent } from './core/sheared/not-found/not-found.component';
 import { ResidencesComponent } from './residences/residences.component';
@@ -11,8 +12,10 @@ const routes: Routes = [
 {path:"home", component:HomeComponent},
 {path:"residences", component:ResidencesComponent},
 {path:"details/:id", component:ResidenceDetailsComponent},
+{path:"addApartment", component:AddApartmentComponent},
 //a la dernière position
 {path:"**", component:NotFoundComponent}
+
 
 ];
 

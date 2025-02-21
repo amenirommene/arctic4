@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,6 +10,7 @@ import { FooterComponent } from './core/sheared/footer/footer.component';
 import { HomeComponent } from './core/sheared/home/home.component';
 import { NotFoundComponent } from './core/sheared/not-found/not-found.component';
 import { ResidenceDetailsComponent } from './residences/residence-details/residence-details.component';
+import { AddApartmentComponent } from './core/add-apartment/add-apartment.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,14 @@ import { ResidenceDetailsComponent } from './residences/residence-details/reside
     FooterComponent,
     HomeComponent,
     NotFoundComponent,
-    ResidenceDetailsComponent
+    ResidenceDetailsComponent,
+    AddApartmentComponent
   ],
   imports: [ //liste des packages à utiliser par les composants ce module
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule, //pour utiliser ngModel
+    ReactiveFormsModule //pour utiliser FormGroupDirective, FormControlName, ......
   ],
   providers: [],
   bootstrap: [AppComponent]
