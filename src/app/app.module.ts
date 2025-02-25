@@ -11,7 +11,7 @@ import { HomeComponent } from './core/sheared/home/home.component';
 import { NotFoundComponent } from './core/sheared/not-found/not-found.component';
 import { ResidenceDetailsComponent } from './residences/residence-details/residence-details.component';
 import { AddApartmentComponent } from './core/add-apartment/add-apartment.component';
-
+import { HttpClientModule } from "@angular/common/http"
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +27,8 @@ import { AddApartmentComponent } from './core/add-apartment/add-apartment.compon
     BrowserModule,
     AppRoutingModule,
     FormsModule, //pour utiliser ngModel
-    ReactiveFormsModule //pour utiliser FormGroupDirective, FormControlName, ......
+    ReactiveFormsModule, //pour utiliser FormGroupDirective, FormControlName, ......
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
