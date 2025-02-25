@@ -7,6 +7,7 @@ rechercher par adresse : <input [(ngModel)]="address">
     <span *ngIf="r.status == 'En Construction' " [style.color]="getColor(r.status)">En Construction 🚧</span>
     <span *ngIf="r.status == 'Vendu' " [style.color]="getColor(r.status)">Vendu ❌</span>
     <button [routerLink]="['/details',r.id]">details</button>
+    <button [routerLink]="['details',r.id]">details-children</button>
     <button (click)="getLocation(r)">Show location</button>
     <button (click)="addFavoris(r)">Add To Favoris</button>
     <div *ngIf="showAdress && id==r.id"> {{r.address}} </div>
@@ -18,3 +19,4 @@ rechercher par adresse : <input [(ngModel)]="address">
 {{r.id }} - {{ r.name }}
 </div>
 
+<router-outlet></router-outlet>

@@ -9,8 +9,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 {path:"", redirectTo:"home", pathMatch:"full"},
 
-{path:"home", component:HomeComponent},
-{path:"residences", component:ResidencesComponent},
+{path:"home", component:HomeComponent, children:[
+  {path:"details/:id", component:ResidenceDetailsComponent}
+]},
+{path:"residences", component:ResidencesComponent, children:[
+  {path:"details/:id", component:ResidenceDetailsComponent}
+]},
 {path:"details/:id", component:ResidenceDetailsComponent},
 {path:"addApartment", component:AddApartmentComponent},
 //a la dernière position
