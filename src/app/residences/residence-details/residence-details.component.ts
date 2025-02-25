@@ -16,7 +16,8 @@ export class ResidenceDetailsComponent {
 //méthode hook qui se déclenche aprés le constructor
   ngOnInit(){
     console.log("je suis ngOnInit");
-    this.ac.paramMap.subscribe(res=>{this.id!=res.get('id');
+    this.ac.paramMap.subscribe(res=>{
+  this.id=res.get('id')!;
   this.rs.getResidenceById(this.id).subscribe(res=>console.log(res))
   });
    //console.log(this.ac.snapshot.params['id']);
