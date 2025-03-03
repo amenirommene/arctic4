@@ -1,5 +1,8 @@
+import { Residence } from './../models/residence';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ResidenceService } from '../services/residence.service';
+import { RouterState } from '@angular/router';
 
 @Component({
   selector: 'app-add-apartment',
@@ -10,9 +13,13 @@ export class AddApartmentComponent {
 
   myForm! : FormGroup;
   myForm2! : FormGroup;
-  constructor(){}
+  listResidences : Residence[] = [];
+  constructor(private rs:ResidenceService){
+    this.rs.getAll().subscribe(res=>this.listResidences=res);
+  }
   //initialiser les propriétés du composant, elle ne remplace le constructeur
   ngOnInit(){
+
   this.myForm = new FormGroup({
     floorNB : new FormControl("", [Validators.required, Validators.pattern("[0-9]*")]),
     apartmentNB: new FormControl("", [Validators.required, Validators.pattern("[0-9]*")]),

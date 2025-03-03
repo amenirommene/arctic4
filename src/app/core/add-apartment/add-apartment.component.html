@@ -3,7 +3,7 @@
       <label for="apartNum" class="col-sm-2 col-col-sm-2 col-form-label">Apartment Number: </label>
       <div class="col-sm-10">
       <input type="text" class="form-control" formControlName="apartmentNB" />
-      <div *ngIf="apartNum?.touched && apartNum?.invalid" class=" alert text-danger">
+      <div *ngIf="apartNum?.touched && apartNum?.invalid" class=" alert alert-danger">
           <div *ngIf="apartNum?.errors?.['required']" >
               Required field
             </div>
@@ -17,8 +17,8 @@
     <div class="row mb-3">
       <label for="floorNum" class="col-sm-2 col-form-label">Floor Number: </label>
       <div class="col-sm-10">
-      <input type="text" class="form-control" formControlName="apartmentNB"  />
-      <div *ngIf="floorNum!.touched && floorNum!.invalid" class="alert text-danger">
+      <input type="text" class="form-control" formControlName="floorNB"  />
+      <div *ngIf="floorNum!.touched && floorNum!.invalid" class="alert alert-danger">
           Required field
         </div>
   </div>
@@ -28,8 +28,8 @@
     <div class="row mb-3">
       <label for="surface" class="col-sm-2 col-form-label">Surface: </label>
       <div class="col-sm-10">
-      <input type="number" class="form-control" name="surface" id="surface" />
-      <div *ngIf="surface!.touched && surface!.invalid" class="alert text-danger">
+      <input type="number" class="form-control" name="surface" id="surface" formControlName="surface" />
+      <div *ngIf="surface!.touched && surface!.invalid" class="alert alert-danger">
           Required field
         </div>
         </div>
@@ -39,18 +39,18 @@
       <label for="terrace" class="col-sm-2 col-form-label"> Terrace: </label>
       <div class="col-sm-10">
       <div class="form-check">
-          <input type="radio" class="form-check-input" name="terrace" id="terrace" value="yes" />
+          <input type="radio" class="form-check-input" name="terrace" formControlName="terrace" id="terrace" value="yes" />
           <label class="form-check-label" for="terrace">
               Yes
             </label>
             </div>
             <div class="form-check">
-              <input type="radio" class="form-check-input" name="terrace" id="terrace" value="no" />
+              <input type="radio" class="form-check-input" formControlName="terrace" name="terrace" id="terrace" value="no" />
               <label class="form-check-label" for="terrace">
                   No
                 </label>
                 </div>
-      <div *ngIf="terrace!.touched && terrace!.invalid" class="alert text-danger">
+      <div *ngIf="terrace!.touched && terrace!.invalid" class="alert alert-danger">
           Required field
         </div>
         </div>
@@ -58,8 +58,8 @@
     <div class="row mb-3">
       <label for="surfaceTerrace" class="col-sm-2 col-form-label">Surface Terrace: </label>
       <div class="col-sm-10">
-      <input type="number" class="form-control" name="surfaceTerrace" id="surfaceTerrace" />
-      <div *ngIf="surfaceTerrace!.touched && surfaceTerrace!.invalid" class=" alert text-danger">
+      <input type="number" class="form-control" name="surfaceTerrace" id="surfaceTerrace" formControlName="surfaceTerrace" />
+      <div *ngIf="surfaceTerrace!.touched && surfaceTerrace!.invalid" class=" alert alert-danger">
           Required field
         </div>
         </div>
@@ -68,24 +68,24 @@
       <label for="category" class="col-sm-2 col-form-label">Category: </label>
       <div class="col-sm-10">
       <div class="form-check">
-      <input type="radio" class="form-check-input" name="category" id="category" value="S+1" />
+      <input type="radio" class="form-check-input" name="category" id="category" value="S+1" formControlName="category"  />
       <label class="form-check-label" for="category">
           S+1
         </label>
         </div>
         <div class="form-check">
-      <input type="radio" class="form-check-input" name="category" id="category" value="S+2" />
+      <input type="radio" class="form-check-input" name="category" id="category" value="S+2" formControlName="category" />
       <label class="form-check-label" for="category">
           S+2
         </label>
         </div>
         <div class="form-check">
-      <input type="radio" class="form-check-input" name="category" id="category" value="S+3" />
+      <input type="radio" class="form-check-input" name="category" id="category" value="S+3" formControlName="category" />
       <label class="form-check-label" for="category">
           S+3
         </label>
         </div>
-      <div *ngIf="category!.touched && category!.invalid" class=" alert text-danger">
+      <div *ngIf="category!.touched && category!.invalid" class=" alert alert-danger">
           Required field
         </div>
         </div>
@@ -94,11 +94,11 @@
       <label for="description" class="col-sm-2 col-form-label">Description: </label>
       <div class="col-sm-10">
       <textarea  name="description" class="form-control" id="description" formControlName="description"></textarea>
-      <div *ngIf="description?.touched && description?.invalid" class=" alert text-danger">
-          <div *ngIf="description?.errors?.['required']" class="alert text-danger">
+      <div *ngIf="description?.touched && description?.invalid" class=" alert alert-danger">
+          <div *ngIf="description?.errors?.['required']" class="alert alert-danger">
               Required field
             </div>
-            <div *ngIf="description?.errors?.['minlength']" class="text-danger">
+            <div *ngIf="description?.errors?.['minlength']" class="alert-danger">
               Minimum 10 caracters
             </div>
         </div>
@@ -107,13 +107,12 @@
     <div class="row mb-3">
       <label for="residence" class="col-sm-2 col-form-label">Residence: </label>
       <div class="col-sm-10">
-      <select  class="form-select" name="residence" id="residence">
+      <select  class="form-select" name="residence" id="residence" formControlName="residence">
           <option selected>Open this select menu</option>
-          <option value="1">Residence 1</option>
-          <option value="2"> Residence 2</option>
-          <option value="3"> Residence 3</option>
+          <option *ngFor="let r of listResidences" [value]="r.id">{{r.name}}</option>
+
           </select>
-      <div *ngIf="residence?.touched && residence?.invalid" class="alert text-danger">
+      <div *ngIf="residence?.touched && residence?.invalid" class="alert alert-danger">
           Required field
         </div>
         </div>

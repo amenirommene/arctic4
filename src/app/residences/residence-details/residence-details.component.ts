@@ -1,3 +1,4 @@
+import { Residence } from './../../core/models/residence';
 import { ResidenceService } from './../../core/services/residence.service';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResidenceDetailsComponent {
  id : string = "-1";
+ r : Residence = new Residence();
   //injecter une instance appelé "ac" du service activatedRoute
   constructor(private ac:ActivatedRoute,private rs:ResidenceService){
     console.log("je suis le constructor");
