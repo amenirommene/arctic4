@@ -1,7 +1,7 @@
 {
   "residences" : [
     {"id":1,"name": "El fel","address":"Borj Cedria",
-    "image":"../../assets/images/R1.jpeg", "status": "Disponible"},
+    "image":"../../assets/images/R1.jpg", "status": "Disponible"},
     {"id":2,"name": "El yasmine",
     "address":"Ezzahra","image":"../../assets/images/R2.jpg", "status":
     "Disponible" },
@@ -12,6 +12,6 @@
     "image":"../../assets/images/R4.jpg", "status": "En Construction"}
     ],
     "apartments":[
-      
+
     ]
 }
