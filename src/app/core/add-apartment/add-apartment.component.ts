@@ -1,3 +1,5 @@
+import { Apartment } from './../models/apartment';
+import { ApartmentService } from './../services/apartment.service';
 import { Residence } from './../models/residence';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -14,9 +16,10 @@ export class AddApartmentComponent {
   myForm! : FormGroup;
   myForm2! : FormGroup;
   listResidences : Residence[] = [];
-  constructor(private rs:ResidenceService){
+  constructor(private rs:ResidenceService, private aps:ApartmentService){
     this.rs.getAll().subscribe(res=>this.listResidences=res);
   }
+
   //initialiser les propriétés du composant, elle ne remplace le constructeur
   ngOnInit(){
 
@@ -40,9 +43,7 @@ export class AddApartmentComponent {
   get apartNum(){
     return this.myForm.get('apartmentNB');
   }
-  add(){
-    console.log(this.myForm.value);
-  }
+
   get surface() { return this.myForm.get('surface'); }
   get surfaceTerrace() { return this.myForm.get('surfaceTerrace'); }
   get terrace() { return this.myForm.get('terrace'); }
@@ -50,4 +51,18 @@ export class AddApartmentComponent {
   get description() { return this.myForm.get('description'); }
   get residence() { return this.myForm.get('residence'); }
 
+  add(){
+    let a = new Apartment();
+    a.appartNum=this.apartNum?.value;
+    a.category=this.category?.value;
+    a.floorNum=this.floorNum?.value;
+    a.description=this.description?.value;
+    a.surface=this.surface?.value;
+    a.surfaceTerrace=this.surfaceTerrace?.value;
+    a.terrace=this.terrace?.value;
+    a.residence=this.residence?.value;
+
+
+    this.aps.addApartment(a).subscribe();
+  }
 }

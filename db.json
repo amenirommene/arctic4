@@ -1,17 +1,67 @@
 {
-  "residences" : [
-    {"id":1,"name": "El fel","address":"Borj Cedria",
-    "image":"../../assets/images/R1.jpg", "status": "Disponible"},
-    {"id":2,"name": "El yasmine",
-    "address":"Ezzahra","image":"../../assets/images/R2.jpg", "status":
-    "Disponible" },
-    {"id":3,"name": "El Arij",
-    "address":"Rades","image":"../../assets/images/R3.jpg", "status":
-    "Vendu"},
-    {"id":4,"name": "El Anber","address":"inconnu",
-    "image":"../../assets/images/R4.jpg", "status": "En Construction"}
-    ],
-    "apartments":[
-
-    ]
+  "residences": [
+    {
+      "id": 1,
+      "name": "El fel",
+      "address": "Borj Cedria",
+      "image": "../../assets/images/R1.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": 2,
+      "name": "El yasmine",
+      "address": "Ezzahra",
+      "image": "../../assets/images/R2.jpg",
+      "status": "Disponible"
+    },
+    {
+      "id": 3,
+      "name": "El Arij",
+      "address": "Rades",
+      "image": "../../assets/images/R3.jpg",
+      "status": "Vendu"
+    },
+    {
+      "id": 4,
+      "name": "El Anber",
+      "address": "inconnu",
+      "image": "../../assets/images/R4.jpg",
+      "status": "En Construction"
+    }
+  ],
+  "apartments": [
+    {
+      "floorNB": "77",
+      "apartmentNB": "77",
+      "surface": 77,
+      "terrace": "yes",
+      "surfaceTerrace": 77,
+      "category": "S+1",
+      "description": "azertyuiop^gfhjklm",
+      "residence": "4",
+      "id": 1
+    },
+    {
+      "floorNB": "44",
+      "apartmentNB": "20",
+      "surface": 44,
+      "terrace": "yes",
+      "surfaceTerrace": 44,
+      "category": "S+1",
+      "description": "zertyuiolpfghjkl",
+      "residence": "3",
+      "id": 2
+    },
+    {
+      "appartNum": "44",
+      "category": "S+2",
+      "floorNum": "44",
+      "description": "zertyuiopvgbhnj,k;l",
+      "surface": 77,
+      "surfaceTerrace": 11,
+      "terrace": "yes",
+      "residence": "2",
+      "id": 3
+    }
+  ]
 }

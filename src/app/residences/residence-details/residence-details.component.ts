@@ -19,8 +19,8 @@ export class ResidenceDetailsComponent {
   ngOnInit(){
     console.log("je suis ngOnInit");
     this.ac.paramMap.subscribe(res=>{
-  this.id=res.get('id')!;
-  this.rs.getResidenceById(this.id).subscribe(res=>console.log(res))
+    this.id=res.get('id')!;
+    this.rs.getResidenceById(this.id).subscribe(res=>this.r=res)
   });
    //console.log(this.ac.snapshot.params['id']);
 }
